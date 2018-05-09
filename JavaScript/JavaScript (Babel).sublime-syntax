@@ -152,6 +152,7 @@ contexts:
     - include: literal-for
     - include: literal-switch
     - include: styled-components
+    - include: graphql
     - include: expression
     - include: literal-punctuation
   curly-brackets:
@@ -339,6 +340,31 @@ contexts:
             - match: "(?=[,)])"
               pop: true
             - include: expression
+  graphql:
+    - match: \s*+gql`
+      push:
+        - meta_scope: meta.graphql.js
+        - match: "`"
+          pop: true
+        - include: scope:source.graphql
+        - match: '\${'
+          push:
+            - meta_scope: js
+            - match: "}"
+              pop: true
+            - include: core
+    - match: \s*+`#graphql
+      push:
+        - meta_scope: meta.graphql.js
+        - match: "`"
+          pop: true
+        - include: scope:source.graphql
+        - match: '\${'
+          push:
+            - meta_scope: js
+            - match: "}"
+              pop: true
+            - include: core
   jsx-attribute-assignment:
     - match: "="
       scope: keyword.operator.assignment.jsx
@@ -949,11 +975,11 @@ contexts:
         (?x)
         !(?!=)| # logical-not     right-to-left   right
         &&    | # logical-and     left-to-right   both
-        \|\|  | # logical-or      left-to-right   both
+        \|\|    # logical-or      left-to-right   both
       scope: keyword.operator.logical.js
     - match: |-
         (?x)
-        =(?!=)| # assignment      right-to-left   both
+        =(?!=)  # assignment      right-to-left   both
       scope: keyword.operator.assignment.js
     - match: |-
         (?x)
@@ -967,7 +993,7 @@ contexts:
         \|=  | # assignment      right-to-left   both
         <<=  | # assignment      right-to-left   both
         >>=  | # assignment      right-to-left   both
-        >>>= | # assignment      right-to-left   both
+        >>>=   # assignment      right-to-left   both
       scope: keyword.operator.assignment.augmented.js
     - match: |-
         (?x)
@@ -1250,7 +1276,7 @@ contexts:
         2: keyword.operator.accessor.js
         3: support.type.object.process.js
         4: support.function.process.js
-    - match: (?<!\.)\b(exports|module(?:(\.)(children|exports|filename|id|loaded|parent)))?\b
+    - match: (?<!\.)\b(exports|module)(?:(\.)(children|exports|filename|id|loaded|parent))?\b
       captures:
         1: support.type.object.module.js
         2: keyword.operator.accessor.js
