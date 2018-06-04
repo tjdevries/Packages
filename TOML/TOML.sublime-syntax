@@ -6,12 +6,13 @@ name: TOML
 file_extensions:
   - toml
   - tml
+  - lock
 
 scope: source.toml
 
 variables:
   ws: '[ \t]*'
-  wsnl: '[ \t\n]*'
+  wsnl: '([ \t\n])*'
 
   # Used to detect the possible start of a key.
   peek_key_start: '(?=[A-Za-z0-9_''"-])'
