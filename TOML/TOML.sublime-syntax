@@ -6,7 +6,8 @@ name: TOML
 file_extensions:
   - toml
   - tml
-  - lock
+  - Cargo.lock
+  - Gopkg.lock
 
 scope: source.toml
 
