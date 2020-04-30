@@ -1,1 +1,5 @@
 https://github.com/babel/babel-sublime
+
+Manually applied fixes:
+- https://github.com/babel/babel-sublime/issues/384
+- https://github.com/babel/babel-sublime/pull/383
