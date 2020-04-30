@@ -8,3 +8,10 @@ Sublime commands:
 - Save
 - mv starlark.tmLanguage.YAML-tmLanguage starlark.sublime-syntax
 
+Add to top of file:
+
+```
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+```
