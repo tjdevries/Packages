@@ -29,6 +29,7 @@ contexts:
     - match: ({{id}})(\.)({{id}})
       captures:
         2: punctuation.accessor.dot.matlab
+      push: transpose_post_parens
   all_matlab_comments:
     - match: (%%).*$\n?
       scope: comment.double.percentage.matlab
@@ -109,8 +110,8 @@ contexts:
     - include: all_matlab_keywords
     - include: all_matlab_comments
     - include: variable
-    - include: variable_invalid
     - include: number
+    - include: variable_invalid
     - include: operators
     - match: \.\.\.
       scope: punctuation.separator.continuation.matlab
@@ -134,7 +135,7 @@ contexts:
         - meta_content_scope: meta.brackets.curly.matlab
         - match: '\}'
           scope: meta.brackets.curly.matlab
-          pop: true
+          set: transpose_post_parens
         - include: allofem
         - include: end_in_parens
   end_in_parens:
@@ -193,7 +194,7 @@ contexts:
       comment: Data Analysis
       scope: keyword.analysis.matlab
   matlab_keyword_control:
-    - match: \b(break|case|catch|continue|else|elseif|end|for|if|otherwise|pause|rethrow|return|start|startat|stop|switch|try|wait|while)\b
+    - match: \b(break|case|catch|continue|else|elseif|end|for|parfor|if|otherwise|pause|rethrow|return|start|startat|stop|switch|try|wait|while)\b
       comment: Control keywords
       scope: keyword.control.matlab
   matlab_keyword_desktop:
@@ -479,7 +480,6 @@ contexts:
         1 : meta.variable.other.valid.matlab
         2 : keyword.operator.transpose.matlab
   transpose_post_parens:
-    - meta_scope: toto
     - match: '(\.?'')'
       captures:
         1 : keyword.operator.transpose.matlab
@@ -491,7 +491,7 @@ contexts:
       scope: invalid.illegal.unescaped-quote.matlab
   variable:
     - match: '\b{{id}}\b'
-      comment: Valid variable. Added meta to disable hilightinh
+      comment: Valid variable. Added meta to disable highlighting
       scope: meta.variable.other.valid.matlab
   variable_assignment:
     - match: '=\s*\.{0,2}\s*;?\s*$\n?'

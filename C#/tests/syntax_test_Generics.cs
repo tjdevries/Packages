@@ -43,6 +43,17 @@ List<int> bar = new List<int>();
 ///                 ^^^^ support.type
 ///                      ^^^ storage.type
 
+List<Nullable<System.Int16>> list;
+///^ support.type
+/// ^ punctuation.definition.generic.begin
+///  ^^^^^^^^ support.type
+///          ^ punctuation.definition.generic.begin
+///           ^^^^^^ support.type
+///                 ^ punctuation.accessor.dot
+///                  ^^^^^ support.type
+///                       ^^ punctuation.definition.generic.end
+///                          ^^^^ variable.other
+
 string verbatim = @"This is a test "" of a verbatim string literal - C:\User";
 ///               ^^ string.quoted.double punctuation.definition.string
 ///                                ^^ constant.character.escape
@@ -54,12 +65,12 @@ string interpolated = $"inner {t.Word,-30} {t.Responsibility,8:F2} {{";
 ///                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.string.interpolated
 ///                            ^ variable.other
 ///                                  ^ punctuation.separator
-///                                   ^^^ constant.numeric
+///                                   ^^^ constant.numeric.integer.decimal
 ///                                      ^ punctuation.section.interpolation.end
 ///                                        ^ punctuation.section.interpolation.begin
 ///                                         ^ variable.other
 ///                                                         ^ punctuation.separator
-///                                                          ^ constant.numeric
+///                                                          ^ constant.numeric.integer.decimal
 ///                                                           ^ punctuation.separator
 ///                                                            ^^ constant.other.format-spec
 ///                                                                ^^ constant.character.escape
@@ -92,7 +103,7 @@ string unclosed_interpolation = $"inner {
 
 string unclosed_interpolation = $"inner {2}
 ///                                     ^ punctuation.section.interpolation.begin.cs
-///                                      ^ constant.numeric
+///                                      ^ constant.numeric.integer.decimal.cs
 ///                                       ^ punctuation.section.interpolation.end.cs
 ///                                        ^ invalid.illegal.unclosed-string.cs
 
