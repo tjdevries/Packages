@@ -1,1 +1,10 @@
-https://github.com/bazelbuild/vscode-bazel/tree/master/syntaxes
+https://github.com/slimsag/vscode-bazel/tree/patch-1/syntaxes
+
+Sublime commands:
+
+- Download tmLanguage.json file
+- Package Control: Install PackageDev
+- PackageDev: Convert to YAML and Rearrange Syntax Definition
+- Save
+- mv starlark.tmLanguage.YAML-tmLanguage starlark.sublime-syntax
+
