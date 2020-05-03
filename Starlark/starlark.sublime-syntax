@@ -3,10 +3,15 @@
 # http://www.sublimetext.com/docs/3/syntax.html
 name: Starlark
 file_extensions:
-  - bzl
-  - star
   - build_defs
   - BUILD
+  - WORKSPACE
+  - bzl
+  - sky
+  - star
+  - BUILD.bazel
+  - WORKSPACE
+  - WORKSPACE.bazel
 scope: source.starlark
 contexts:
   main:
