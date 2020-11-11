@@ -38,6 +38,30 @@ Alternatively, download the portable version, and clone this repository directly
 
 After you've finished, keep in mind that you're now overriding a default package. When Sublime Text updates to a new version, you'll run the risk of having an out-of-date package unless you pull the latest changes from this repository.
 
+## Adding a new language
+
+### Find an open-source `.tmLanguage` or `.sublime-syntax` file
+
+- With a `.tmLanguage.json`, `.tmLanguage.yaml`, or other, convert to `.tmLanguage` first:
+  - Install [the PackageDev plugin](https://github.com/SublimeText/PackageDev) in Sublime Text 3.
+  - Open the file with Sublime Text 3, press <kbd>Cmd+Shift+P</kbd>.
+  - Search for `PackageDev: Convert (YAML, JSON, PList) to` and select `Convert to: Property List`
+  - Rename the file to just `.tmLanguage` instead of `.tmLanguage.plist` (Sublime will not recognize it as a tmLanguage file otherwise).
+- With a `.tmLanguage` file:
+  - example: https://github.com/Microsoft/TypeScript-TmLanguage/blob/master/TypeScript.tmLanguage
+  - Ensure it has exact `.tmLanguage` suffix, or else command will not be available.
+  - Open the file with Sublime Text 3, press <kbd>Cmd+Shift+P</kbd>.
+  - Search for `Plugin Development: Convert Syntax to .sublime-syntax` command.
+
+## Create a PR to this repository
+
+Your PR should include:
+
+- A folder like https://github.com/slimsag/Packages/tree/master/GraphQL with the final `.sublime-syntax` file.
+- A `SOURCE` file with a URL where the syntax came from (e.g. link directly to the tmLanguage file on GitHub).
+- A `VERSION` file with the Git commit hash of the SOURCE.
+- An entry in the License table below, describing the license of the directory.
+
 ## License
 
 All contents are licensed under the following licenses, which allow for free commercial use and distribution of the files:
