@@ -4,6 +4,7 @@
 name: Starlark
 file_extensions:
   - build_defs
+  - BUILD.in
   - BUILD
   - WORKSPACE
   - bzl
