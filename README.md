@@ -47,11 +47,14 @@ After you've finished, keep in mind that you're now overriding a default package
   - Open the file with Sublime Text 3, press <kbd>Cmd+Shift+P</kbd>.
   - Search for `PackageDev: Convert (YAML, JSON, PList) to` and select `Convert to: Property List`
   - Rename the file to just `.tmLanguage` instead of `.tmLanguage.plist` (Sublime will not recognize it as a tmLanguage file otherwise).
+  - Use <kbd>Cmd+Shift+P</kbd> and choose `Set Syntax: Property List (XML)`
+  - Follow the steps below to convert the `.tmLanguage` to `.sublime-syntax`
 - With a `.tmLanguage` file:
   - example: https://github.com/Microsoft/TypeScript-TmLanguage/blob/master/TypeScript.tmLanguage
   - Ensure it has exact `.tmLanguage` suffix, or else command will not be available.
   - Open the file with Sublime Text 3, press <kbd>Cmd+Shift+P</kbd>.
   - Search for `Plugin Development: Convert Syntax to .sublime-syntax` command.
+  - If nothing happens, see the console (<kbd>Ctrl+`</kbd>)
 
 ## Create a PR to this repository
 
